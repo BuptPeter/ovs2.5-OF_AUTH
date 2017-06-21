@@ -5292,7 +5292,7 @@ handle_flow_mod(struct ofconn *ofconn, const struct ofp_header *oh)
     enum ofperr error;
 
     FILE *FSpointer;
-    #define MYPORT  11111
+    #define MYPORT  11777
     #define BUFFER_SIZE 1024
 
     error = reject_slave_controller(ofconn);
@@ -5320,7 +5320,7 @@ handle_flow_mod(struct ofconn *ofconn, const struct ofp_header *oh)
     memset(&servaddr, 0, sizeof(servaddr));
     servaddr.sin_family = AF_INET;
     servaddr.sin_port = htons(MYPORT);  ///服务器端口
-    servaddr.sin_addr.s_addr = inet_addr("10.109.34.179");  ///服务器ip
+    servaddr.sin_addr.s_addr = inet_addr("127.0.0.1");  ///服务器ip
 
     ///连接服务器，成功返回0，错误返回-1
     if (connect(sock_cli, (struct sockaddr *)&servaddr, sizeof(servaddr)) < 0)
@@ -5328,8 +5328,7 @@ handle_flow_mod(struct ofconn *ofconn, const struct ofp_header *oh)
         perror("connect error!");
         fprintf(FSpointer, "%s\n","connect error!");
     }
-    char sendbuf[BUFFER_SIZE];
-    char recvbuf[BUFFER_SIZE];
+    char sendbuf[BUFFER_SIZE]="received a FLOW_MOD Info.";
     ///发送
     if(send(sock_cli, sendbuf, strlen(sendbuf),0)<0){
         perror("send error!");
