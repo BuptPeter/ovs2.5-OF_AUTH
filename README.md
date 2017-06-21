@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Open vSwitch
 ============
 
@@ -128,3 +129,7 @@ bugs@openvswitch.org
 [INSTALL.XenServer.md]:INSTALL.XenServer.md
 [FAQ.md]:FAQ.md
 [tutorial/Tutorial.md]:tutorial/Tutorial.md
+=======
+# ovs2.5-OF_AUTH
+基于openvswitch2.5，加入了流表完整性校验模块和消息认证模块。
+>>>>>>> b3f9f1700ac1b9fb6a561c4084d91ddc802d4c68
